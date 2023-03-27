@@ -1,0 +1,51 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      G00258621
+    </ion-title>
+    <ion-buttons end>
+      <button ion-button (click)="goToSettingsPage()">
+        <ion-icon name="md-settings"></ion-icon>
+      </button>
+      </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <h2>Quote from {{ author }} about: </h2>
+  <ion-list>
+    <ion-item>
+      <ul>
+        <li>{{ tags }}</li>
+      </ul>
+    </ion-item>
+  </ion-list>
+  <h3>{{ content }}</h3>
+  <br/>
+  <h2 >{{ text }}</h2> 
+
+  <div style="width: 100%; border-top: 1px solid #d4d4d4; margin: 8px 0;"></div>
+ 
+  <!-- One of these two statements will be active, depending on the state of the hidden boolean -->
+  <h3 [hidden]="!hidden">Country ID {{ countryID }} doesn't exist</h3>
+  <h3 [hidden]="hidden">Country ID {{ countryID }} is {{ countryName }}</h3>
+  
+  <!-- Display country flag -->
+  <ion-img [hidden]="hidden" width="80" height="60" src="https://flagsapi.com/{{ uppercaseCountryFlagCode }}/shiny/64.png"></ion-img>
+
+  <!-- Display table of player data -->
+  <ion-grid [hidden]="hidden">
+    <ion-row>
+      <ion-col class="style">First Name</ion-col>
+      <ion-col class="style">Surname</ion-col>
+      <ion-col class="style">Age</ion-col>
+      <ion-col class="style">Height</ion-col>
+    </ion-row>
+    <ion-row *ngFor="let p of playerData">
+      <ion-col class="style">{{ p.firstname }}</ion-col>
+      <ion-col class="style">{{ p.lastname }}</ion-col>
+      <ion-col class="style">{{ p.age }}</ion-col>
+      <ion-col class="style">{{ p.height }}</ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

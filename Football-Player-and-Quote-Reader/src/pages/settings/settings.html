@@ -1,0 +1,30 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Settings</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<!-- Input box for country ID -->
+<ion-content padding>
+  <ion-item>
+    <ion-label color="primary">Enter Country ID</ion-label>
+    <ion-input [(ngModel)]="enteredNumber"  placeholder="Enter ID"></ion-input>  
+  </ion-item> 
+
+  <br> 
+  <p>Player Ages:</p>
+  
+  <!-- Input boxes for minimum and maximum ages -->
+  <ion-item>
+    <ion-label color="primary">Minimum Age</ion-label>
+    <ion-input [(ngModel)]="minAge" placeholder="Enter Age"> </ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label color="primary">Maximum Age</ion-label>
+    <ion-input [(ngModel)]="maxAge" placeholder="Enter Age"> </ion-input>
+  </ion-item>  
+
+  <button ion-button (click)="saveButton()">Save</button>
+  <button ion-button (click)="cancelButton()">Cancel</button>
+  <button ion-button (click)="goToCountryList()">List of Countries</button>
+</ion-content>
